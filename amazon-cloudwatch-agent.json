@@ -1,0 +1,46 @@
+{
+    "agent": {
+        "region": "ap-southeast-1",
+        "run_as_user": "root",
+        "metrics_collection_interval": 10
+    },
+    "logs": {
+        "logs_collected": {
+            "files": {
+                "collect_list": [
+                    {
+                        "file_path": "/home/ubuntu/AIOPs_Hackathon_Lab_Application/microservices/discovery-service/discovery-service.log",
+                        "log_group_name": "AWS_AIOps_Hackathon",
+                        "log_stream_name": "_test_discovery_service_stream",
+                        "timestamp_format": "%Y-%m-%d %H:%M:%S"
+                    },
+                    {
+                        "file_path": "/home/ubuntu/AIOPs_Hackathon_Lab_Application/microservices/api-gateway/api-gateway.log",
+                        "log_group_name": "AWS_AIOps_Hackathon",
+                        "log_stream_name": "api_gateway_stream",
+                        "timestamp_format": "%Y-%m-%d %H:%M:%S"
+                    },
+                    {
+                        "file_path": "/home/ubuntu/AIOPs_Hackathon_Lab_Application/microservices/location-service/location.log",
+                        "log_group_name": "AWS_AIOps_Hackathon",
+                        "log_stream_name": "location_service_stream",
+                        "timestamp_format": "%Y-%m-%d %H:%M:%S"
+                    },
+                    {
+                        "file_path": "/home/ubuntu/AIOPs_Hackathon_Lab_Application/microservices/car-service/car-service.log",
+                        "log_group_name": "AWS_AIOps_Hackathon",
+                        "log_stream_name": "car_service_stream",
+                        "timestamp_format": "%Y-%m-%d %H:%M:%S"
+                    },
+                    {
+                        "file_path": "/home/ubuntu/AIOPs_Hackathon_Lab_Application/microservices/reservation-service/reservation.log",
+                        "log_group_name": "AWS_AIOps_Hackathon",
+                        "log_stream_name": "reservation_service_stream",
+                        "timestamp_format": "%Y-%m-%d %H:%M:%S"
+                    }
+                ]
+            }
+        }
+    },
+    "force_flush_interval": 15
+}
