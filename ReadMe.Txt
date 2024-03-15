@@ -20,6 +20,10 @@ sudo dpkg -i -E ./aws-otel-collector.deb
 sudo /opt/aws/aws-otel-collector/bin/aws-otel-collector-ctl  -a start
 sudo /opt/aws/aws-otel-collector/bin/aws-otel-collector-ctl  -a status
 
+7). Download OTEL jar
+
+wget https://github.com/aws-observability/aws-otel-java-instrumentation/releases/latest/download/aws-opentelemetry-agent.jar
+
 7).  When Miroservices are getting strted include the OTEL Jar
 
 nohup java -Xms256m -Xmx512m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=./java_pid.hprof -javaagent:/home/ubuntu/Lab_App/Services/aws-opentelemetry-agent.jar -jar /home/ubuntu/Lab_App/Services/discovery-service/discovery-service-0.0.1-SNAPSHOT.jar -c /opt/aws/aws-otel-collector/etc/config.yaml > discovery-service.log 2>&1 &
