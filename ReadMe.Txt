@@ -24,12 +24,19 @@ sudo /opt/aws/aws-otel-collector/bin/aws-otel-collector-ctl  -a status
 
 wget https://github.com/aws-observability/aws-otel-java-instrumentation/releases/latest/download/aws-opentelemetry-agent.jar
 
-7).  When Miroservices are getting strted include the OTEL Jar
+8).  When Miroservices are getting strted include the OTEL Jar
 
-nohup java -Xms256m -Xmx512m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=./java_pid.hprof -javaagent:/home/ubuntu/Lab_App/Services/aws-opentelemetry-agent.jar -jar /home/ubuntu/Lab_App/Services/discovery-service/discovery-service-0.0.1-SNAPSHOT.jar -c /opt/aws/aws-otel-collector/etc/config.yaml > discovery-service.log 2>&1 &
+nohup java -Xms256m -Xmx512m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=./java_pid.hprof -javaagent:/home/ubuntu/AIOPs_Hackathon_Lab_Application/aws-opentelemetry-agent.jar -jar /home/ubuntu/AIOPs_Hackathon_Lab_Application/microservices/discovery-service/discovery-service-0.0.1-SNAPSHOT.jar -c /opt/aws/aws-otel-collector/etc/config.yaml > discovery-service.log 2>&1 &
 
-      java -Xms256m -Xmx512m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=./java_pid.hprof javaagent:/home/ubuntu/AIOPs_Hackathon_Lab_Application/aws-opentelemetry-agent.jar -jar car-service-0.0.1-SNAPSHOT.jar > car-service.log 2>&1 &
+nohup java -Xms256m -Xmx512m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=./java_pid.hprof -javaagent:/home/ubuntu/AIOPs_Hackathon_Lab_Application/aws-opentelemetry-agent.jar -jar /home/ubuntu/AIOPs_Hackathon_Lab_Application/microservices/api-gateway/api-gateway-0.0.1-SNAPSHOT.jar -c /opt/aws/aws-otel-collector/etc/config.yaml > api-gateway.log 2>&1 &
 
+nohup java -Xms256m -Xmx512m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=./java_pid.hprof -javaagent:/home/ubuntu/AIOPs_Hackathon_Lab_Application/aws-opentelemetry-agent.jar -jar /home/ubuntu/AIOPs_Hackathon_Lab_Application/microservices/location-service/location-service-0.0.1-SNAPSHOT.jar -c /opt/aws/aws-otel-collector/etc/config.yaml > location-service.log 2>&1 &
+
+nohup java -Xms256m -Xmx512m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=./java_pid.hprof -javaagent:/home/ubuntu/AIOPs_Hackathon_Lab_Application/aws-opentelemetry-agent.jar -jar /home/ubuntu/AIOPs_Hackathon_Lab_Application/microservices/car-service/car-service-0.0.1-SNAPSHOT.jar -c /opt/aws/aws-otel-collector/etc/config.yaml > car-service.log 2>&1 &
+
+nohup java -Xms256m -Xmx512m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=./java_pid.hprof -javaagent:/home/ubuntu/AIOPs_Hackathon_Lab_Application/aws-opentelemetry-agent.jar -jar /home/ubuntu/AIOPs_Hackathon_Lab_Application/microservices/reservation-service/reservation-service-0.0.1-SNAPSHOT.jar -c /opt/aws/aws-otel-collector/etc/config.yaml > reservation-service.log 2>&1 &
+
+9). Create IAM role and provide EC2 CloudWatch Full access 
 
 
 
